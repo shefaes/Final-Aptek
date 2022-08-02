@@ -20,7 +20,7 @@ namespace DataAccess.Repositories.Implementations
             entity.Id = id;
             try
             {
-                DbContext.Admins.Add(entity);
+                DbContexts.Admins.Add(entity);
             }
             catch (Exception)
             {
@@ -33,7 +33,7 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                DbContext.Admins.Remove(entity);
+                DbContexts.Admins.Remove(entity);
             }
             catch (Exception)
             {
@@ -46,11 +46,11 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                var admin = DbContext.Admins.Find(a => a.Id == entity.Id);
+                var admin = DbContexts.Admins.Find(a => a.Id == entity.Id);
                 if (admin != null)
                 {
-                    admin.Username = entity.Username;
-                    admin.Password = entity.Password;
+                    admin.Username1 = entity.Username1;
+                    admin.Password1= entity.Password1;
                 }
             }
             catch (Exception)
@@ -66,11 +66,11 @@ namespace DataAccess.Repositories.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContext.Admins;
+                    return DbContexts.Admins;
                 }
                 else
                 {
-                    return DbContext.Admins.FindAll(filter);
+                    return DbContexts.Admins.FindAll(filter);
                 }
             }
             catch (Exception)

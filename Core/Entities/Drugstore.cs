@@ -13,7 +13,7 @@ namespace Core.Entities
         public string Name { get; set; }
         public string Address { get; set; }
         public byte ContactNumber { get; set; }
-        public List<Druggists>Druggists { get; set; }
+        public List<Druggist>Druggists { get; set; }
         public List<Drug> Drugs { get; set; }
         public string Owner { get; set; }
 
