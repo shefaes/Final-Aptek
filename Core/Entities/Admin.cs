@@ -22,10 +22,6 @@ namespace Core.Entities
         }
         public string Username2 { get; set; }
         public string Password2 { get; set; }
-        public Admin(string username2, string password2)
-        {
-            Username2 = username2;
-            Password2 = password2;
-        }
+  
     }
  }

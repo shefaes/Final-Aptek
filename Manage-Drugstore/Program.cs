@@ -31,18 +31,21 @@ namespace Manage_Drugstore
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "2 - Update Owner");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "3 - Delete Owner");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "4 - GetAll Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "5 - Create Drugstore");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "5 -  Create Drugstore");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "6 - Update Drugstore");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "7 - Delete Drugstore");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "8 - GetAll Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "9 - Create Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "10- Update Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "11- Delete Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "12- GetAll Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "13- Create Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "14- Update Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "15- Delete Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "16- GetAll Drug");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "9 - GetAll Drugstores By Owner");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "10 - Create Druggist");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "11- Update Druggist");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "12- Delete Druggist");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "13- GetAll Druggist");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "14 - GetAll Druggists by Drugstore");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "15- Create Drug");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "16- Update Drug");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "17- Delete Drug");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "18- GetAll Drug");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "19- GetAll Drugs by Drugstore");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "0 - Logout");
                     Console.WriteLine("----");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
@@ -52,7 +55,7 @@ namespace Manage_Drugstore
                     bool result = int.TryParse(number, out selectedNumber);
                     if (result)
                     {
-                        if (selectedNumber >= 0 && selectedNumber <= 16)
+                        if (selectedNumber >= 0 && selectedNumber <= 19)
                         {
                             switch (selectedNumber)
                             {

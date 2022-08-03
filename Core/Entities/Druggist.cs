@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Druggists :IEntity
+    public class Druggist :IEntity
     {
        public int Id { get; set; }
         public string Name { get; set; }

@@ -35,5 +35,6 @@ namespace DataAccess.Contexts
         public static List<Druggist> Druggists { get; set; }
 
         public static List<Drug> Drugs { get; set; }
+        public static object Owner { get; internal set; }
     }
 }

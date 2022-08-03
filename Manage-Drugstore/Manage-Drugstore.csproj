@@ -6,4 +6,8 @@
     <RootNamespace>Manage_Drugstore</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
