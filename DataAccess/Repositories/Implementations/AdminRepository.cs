@@ -59,7 +59,6 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-
         public List<Admin> GetAll(Predicate<Admin> filter = null)
         {
             try
@@ -79,11 +78,6 @@ namespace DataAccess.Repositories.Implementations
                 Console.WriteLine("Something went wrong");
                 return null;
             }
-        }
-
-        Admin IRepository<Admin>.Create(Admin entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }
