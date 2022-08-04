@@ -57,7 +57,7 @@ namespace Manage_Drugstore
                     bool result = int.TryParse(number, out selectedNumber);
                     if (result)
                     {
-                        if (selectedNumber >= 0 && selectedNumber <= 19)
+                        if (selectedNumber >= 0 && selectedNumber <= 21)
                         {
                             switch (selectedNumber)
                             {
@@ -129,7 +129,7 @@ namespace Manage_Drugstore
                         }
                         
                     }
-                     //case5 
+                     
                     ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Log out");
                     while (true)
                     {

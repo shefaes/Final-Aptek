@@ -95,6 +95,10 @@ namespace DataAccess.Repositories.Implementations
             }
 
         }
-        
+
+        public void Create(Druggist druggist)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

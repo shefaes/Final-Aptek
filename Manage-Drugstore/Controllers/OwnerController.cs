@@ -35,7 +35,7 @@ namespace Manage_Drugstore.Controllers
             var owner = _ownerRepository.Get(o => o.Name.ToLower() == name.ToLower());
             if (owner != null)
             {
-                _ownerRepository.Delete(owner);
+                OwnerRepository.Delete(owner);
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Gray, $"{name} is deleted");
             }
             else
