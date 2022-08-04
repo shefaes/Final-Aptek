@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.Constans;
+using Core.Constants;
 using Core.Entities;
 using Core.Helpers;
 using DataAccess.Repositories.Implementations;
@@ -22,33 +22,35 @@ namespace Manage_Drugstore
 
             if (admin != null)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Welcome to our Drugstore,{admin.Username}");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, $"Welcome to our Drugstore,{admin.Username}");
                 Console.WriteLine("----");
 
                 while (true)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "1 - Create Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "2 - Update Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "3 - Delete Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "4 - GetAll Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "5 -  Create Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "6 - Update Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "7 - Delete Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "8 - GetAll Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "9 - GetAll Drugstores By Owner");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "10 - Create Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "11- Update Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "12- Delete Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "13- GetAll Druggist");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "14 - GetAll Druggists by Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "15- Create Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "16- Update Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "17- Delete Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "18- GetAll Drug");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "19- GetAll Drugs by Drugstore");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "0 - Logout");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "1 - Create Owner");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "2 - Update Owner");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "3 - Delete Owner");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "4 - Get All Owners");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "5 - Create Drugstore");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "6 - Update Drugstore");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "7 - Delete Drugstore");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "8 - Get All Drugstores ");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "9 - Get All Drugstores By Owner");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "10 - Sale");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "11 - Create Druggist");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "12- Update Druggist");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "13- Delete Druggist");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "14- Get All Drugstores ");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "15 - Get All Druggist by Drugstore");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "16- Create Drug");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "17- Update Drug");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "18- Delete Drug");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "19- Get All Drugs");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "20- Get All Drugs by Drugstore");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "21 - Filter");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "0 - Logout");
                     Console.WriteLine("----");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
                     string number = Console.ReadLine();
 
                     int selectedNumber;
@@ -60,16 +62,16 @@ namespace Manage_Drugstore
                             switch (selectedNumber)
                             {
                                 case (int)Options.CreateOwner:
-                                 _ownerController.CreateOwner();
+                                    _ownerController.CreateOwner();
                                     break;
                                 case (int)Options.UpdateOwner:
-                                 _ownerController.UpdateOwner();
+                                    _ownerController.UpdateOwner();
                                     break;
                                 case (int)Options.DeleteOwner:
-                                 _ownerController.DeleteOwner();
+                                    _ownerController.DeleteOwner();
                                     break;
-                                case (int)Options.GetAllOwner:
-                                 _ownerController.GetAllOwner();
+                                case (int)Options.GetAllOwners:
+                                    _ownerController.GetAllOwners();
                                     break;
                                 case (int)Options.CreateDrugstore:
                                     _drugstoreController.CreateDrugstore();
@@ -80,8 +82,14 @@ namespace Manage_Drugstore
                                 case (int)Options.DeleteDrugstore:
                                     _drugstoreController.DeleteDrugstore();
                                     break;
-                                case (int)Options.GetAllDrugstore:
-                                    _drugstoreController.GetAllDrugstore();
+                                case (int)Options.GetAllDrugstores:
+                                    _drugstoreController.GetAllDrugstores();
+                                    break;
+                                case (int)Options.GetAllDrugstoresByOwner:
+                                    _drugstoreController.GetAllDrugstoresByOwner();
+                                    break;
+                                case (int)Options.Sale:
+                                    _drugstoreController.Sale();
                                     break;
                                 case (int)Options.CreateDruggist:
                                     _druggistController.CreateDruggist();
@@ -92,8 +100,11 @@ namespace Manage_Drugstore
                                 case (int)Options.DeleteDruggist:
                                     _druggistController.DeleteDruggist();
                                     break;
-                                case (int)Options.GetAllDruggist:
-                                    _druggistController.GetAllDruggist();
+                                case (int)Options.GetAllDruggists:
+                                    _druggistController.GetAllDruggists();
+                                    break;
+                                case (int)Options.GetAllDruggistByDrugstore:
+                                    _druggistController.GetAllDruggistByDrugstore();
                                     break;
                                 case (int)Options.CreateDrug:
                                     _drugController.CreateDrug();
@@ -104,26 +115,36 @@ namespace Manage_Drugstore
                                 case (int)Options.DeleteDrug:
                                     _drugController.DeleteDrug();
                                     break;
-                                case (int)Options.GetAllDrug:
-                                    _drugController.GetAllDrug();
+                                case (int)Options.GetAllDrugs:
+                                    _drugController.GetAllDrugs();
                                     break;
-                                    return;
+                                case(int)Options.GetAllDrugsByDrugstore:
+                                    _drugController.GetAllDrugsByDrugstore();
+                                    break;
                             }
                         }
                         else
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct number");
+                            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct number");
                         }
+                        
                     }
+                     //case5 
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Log out");
+                    while (true)
+                    {
+                        goto Authentication;
+                    }
+                
                     else
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct number");
+                        ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Please enter correct number");
                     }
                 }
             }
             else
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Admin username or password is incorrect");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Admin username or password is incorrect");
                 goto Authentication;
             }
         }

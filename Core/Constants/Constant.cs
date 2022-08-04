@@ -8,21 +8,29 @@ namespace Core.Constants
 {
     public enum Options
     {
-      CreateOwner,
+       CreateOwner,
        UpdateOwner,
        DeleteOwner,
-       GetAllOwner,
+       GetAllOwners,
+
        CreateDrugstore,
        UpdateDrugstore,
        DeleteDrugstore,
-       GetAllDrugstore,
+       GetAllDrugstores,
+       GetAllDrugstoresByOwner,
+       Sale,
+
        CreateDruggist,
        UpdateDruggist,
        DeleteDruggist,
-       GetAllDruggist,
+       GetAllDruggists,
+       GetAllDruggistByDrugstore,
+
        CreateDrug,
        UpdateDrug,
        DeleteDrug,
-       GetAllDrug,
+       GetAllDrugs,
+       GetAllDrugsByDrugstore,
+       Filter,
     }
 }

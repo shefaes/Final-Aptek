@@ -19,10 +19,10 @@ namespace Manage_Drugstore.Controllers
         }
         public Admin Authenticate()
         {
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Enter admin username:");
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "Enter admin username:");
             string username = Console.ReadLine();
 
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Enter admin password:");
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "Enter admin password:");
             string password = Console.ReadLine();
 
             var admin = _adminRepository.Get(a => a.Username.ToLower() == username.ToLower()

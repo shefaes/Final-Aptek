@@ -87,7 +87,7 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                var Owner = DbContexts.Owner.Find(d => d.Id == entity.Id);
+                var Owner = DbContexts.Owner.Find(o => o.Id == entity.Id);
                 if (Owner != null)
                     Owner.Name = entity.Name;
                     Owner.Surname = entity.Surname;
