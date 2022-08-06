@@ -41,7 +41,7 @@ namespace Manage_Drugstore.Controllers
                 int experience;
                 result = int.TryParse(experienceInput, out experience);
 
-            AllDrugStoreList: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All drugstores");
+              AllDrugStoreList: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All drugstores");
 
                 foreach (var drugStoreItem in drugStores)
                 {
@@ -106,7 +106,7 @@ namespace Manage_Drugstore.Controllers
                 result = int.TryParse(experienceInput, out experience);
 
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "enter new Drug store name");
-            DrugStoreName: string newDrugStoreName = Console.ReadLine();
+              DrugStoreName: string newDrugStoreName = Console.ReadLine();
 
                 if (druggist.Name.ToLower() == newDrugStoreName.ToLower())
                 {

@@ -15,13 +15,13 @@ namespace Manage_Drugstore.Controllers
 
         public DrugController()
         {
-            DrugRepository = new _drugRepository();
+          
         }
         public void CreateDrug()
         {
-
+           
         }
-
+       
         public void UpdateDrug()
         {
 

@@ -16,6 +16,7 @@ namespace DataAccess.Contexts
             Drugstores = new List<Drugstore>();
             Druggists = new List<Druggist>();
             Drugs = new List<Drug>();
+            Owners = new List<Owner>();
             Admins = new List<Admin>();
 
             string password = "1988";
