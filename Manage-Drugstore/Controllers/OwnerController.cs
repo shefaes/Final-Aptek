@@ -24,8 +24,16 @@ namespace Manage_Drugstore.Controllers
             ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner name:");
             string name = Console.ReadLine();
 
-            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner surname:");
-            string surname = Console.ReadLine();
+            Surname: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner surname:");
+            string Surname = Console.ReadLine();
+
+            Owner owner = new Owner
+            {
+                Name = name,
+                Surname = Surname,
+            };
+            var createdOwner = _ownerRepository.Create(owner);
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{createdOwner.Name} {createdOwner.Surname} is successfully created:");
 
         }
         public void DeleteOwner()
@@ -43,7 +51,6 @@ namespace Manage_Drugstore.Controllers
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "This owner doesn't exist");
             }
         }
-
         public void GetAllOwners()
         {
             var owners = _ownerRepository.GetAll();
