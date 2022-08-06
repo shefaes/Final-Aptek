@@ -58,7 +58,7 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "2 - Update Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "3 - Delete Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "4 - Get All Owners");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Exit");
+                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
 
                                                 switch (selectedNumber)
@@ -75,7 +75,7 @@ namespace Manage_Drugstore
                                                     case (int)Options1.GetAllOwners:
                                                         _ownerController.GetAllOwners();
                                                         break;
-                                                    case (int)Options1.Exit:
+                                                    case (int)Options1.Logout:
                                                         goto Number;
                                                         break;
                                                 }
@@ -101,7 +101,7 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "4- Get All Drugstores ");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "5- Get All Drugstores By Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "6 - Sale");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Exit");
+                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
                                                 switch (selectedNumber)
                                                 {
@@ -123,7 +123,7 @@ namespace Manage_Drugstore
                                                     case (int)Options2.Sale:
                                                         _drugstoreController.Sale();
                                                         break;
-                                                    case (int)Options2.Exit:
+                                                    case (int)Options2.Logout:
                                                         goto Number;
                                                         break;
                                                 }
@@ -147,7 +147,7 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "3- Delete Druggist");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "4- Get All Drugstores ");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "5 - Get All Druggist by Drugstore");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Exit");
+                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
                                                 switch (selectedNumber)
                                                 {
@@ -166,7 +166,7 @@ namespace Manage_Drugstore
                                                     case (int)Options3.GetAllDruggistByDrugstore:
                                                         _druggistController.GetAllDruggistByDrugstore();
                                                         break;
-                                                    case (int)Options3.Exit:
+                                                    case (int)Options3.Logout:
                                                         goto Number;
                                                 }
                                             }
@@ -190,7 +190,7 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "4- Get All Drugs");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "5- Get All Drugs by Drugstore");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "6 - Filter");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Exit");
+                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
                                                 switch (selectedNumber)
                                                 {
@@ -209,7 +209,7 @@ namespace Manage_Drugstore
                                                     case (int)Options4.GetAllDrugsByDrugstore:
                                                         _drugController.GetAllDrugsByDrugstore();
                                                         break;
-                                                    case (int)Options4.Exit:
+                                                    case (int)Options4.Logout:
                                                         goto Number;      
                                                 }
                                             }

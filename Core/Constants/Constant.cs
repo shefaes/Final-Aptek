@@ -8,7 +8,7 @@ namespace Core.Constants
 {
     public enum Options1
     {
-        Exit,
+        Logout,
        CreateOwner,
        UpdateOwner,
        DeleteOwner,
@@ -19,7 +19,7 @@ namespace Core.Constants
     }
     public enum Options2
     {
-        Exit,
+        Logout,
         CreateDrugstore,
         UpdateDrugstore,
         DeleteDrugstore,
@@ -30,7 +30,7 @@ namespace Core.Constants
     }
     public enum Options3
     {   
-        Exit,
+        Logout,
         CreateDruggist,
         UpdateDruggist,
         DeleteDruggist,
@@ -40,7 +40,7 @@ namespace Core.Constants
     }
     public enum Options4
     {
-        Exit,
+        Logout,
         CreateDrug,
         UpdateDrug,
         DeleteDrug,

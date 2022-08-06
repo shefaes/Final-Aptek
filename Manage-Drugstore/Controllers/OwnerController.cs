@@ -36,39 +36,7 @@ namespace Manage_Drugstore.Controllers
             ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{createdOwner.Name} {createdOwner.Surname} is successfully created:");
 
         }
-        public void DeleteOwner()
-        {
-            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter Owner name");
-            string name = Console.ReadLine();
-            var owner = _ownerRepository.Get(o => o.Name.ToLower() == name.ToLower());
-            if (owner != null)
-            {
-                _ownerRepository.Delete(owner);
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Gray, $"{name} is deleted");
-            }
-            else
-            {
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "This owner doesn't exist");
-            }
-        }
-        public void GetAllOwners()
-        {
-            var owners = _ownerRepository.GetAll();
-            if (owners.Count > 0)
-            {
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All owners list");
 
-                foreach (var owner in owners)
-                {
-                   
-                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, $"Id - {owner.Id}, fullname - {owner.Name}{owner.Surname}");
-                }
-            }
-            else
-            {
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There is no any owner");
-            }
-        }
         public void UpdateOwner()
         {
             var owners = _ownerRepository.GetAll();
@@ -117,6 +85,42 @@ namespace Manage_Drugstore.Controllers
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There are any owner");
             }
         }
+
+        public void DeleteOwner()
+        {
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter Owner name");
+            string name = Console.ReadLine();
+            var owner = _ownerRepository.Get(o => o.Name.ToLower() == name.ToLower());
+            if (owner != null)
+            {
+                _ownerRepository.Delete(owner);
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, $"{name} is deleted");
+            }
+            else
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "This owner doesn't exist");
+            }
+        }
+
+        public void GetAllOwners()
+        {
+            var owners = _ownerRepository.GetAll();
+            if (owners.Count > 0)
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All owners list");
+
+                foreach (var owner in owners)
+                {
+                   
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, $"Id - {owner.Id}, fullname - {owner.Name}{owner.Surname}");
+                }
+            }
+            else
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There is no any owner");
+            }
+        }
+       
     }
 }   
 
