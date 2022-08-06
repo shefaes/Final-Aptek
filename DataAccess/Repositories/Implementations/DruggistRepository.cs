@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories.Implementations
 {
-    class DruggistRepository : IRepository<Druggist>
+   public  class DruggistRepository : IRepository<Druggist>
     {
         public Druggist Create(Druggist entity)
         {
@@ -97,5 +97,6 @@ namespace DataAccess.Repositories.Implementations
             }
 
         }
+
     }
 }

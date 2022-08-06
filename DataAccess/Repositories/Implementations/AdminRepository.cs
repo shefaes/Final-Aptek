@@ -59,7 +59,7 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-        public List<Admin> Get (Predicate<Admin> filter = null)
+        public Admin Get (Predicate<Admin> filter = null)
         {
             try
             {

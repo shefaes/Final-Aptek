@@ -11,17 +11,14 @@ namespace Core.Entities
     {
         public int Id { get; set; }
 
-        public string Username1 { get; set; }
+        public string Username { get; set; }
 
-        public string Password1 { get; set; }
+        public string Password { get; set; }
 
-        public Admin(string username1, string password1)
+        public Admin(string username, string password)
         {
-            Username1 = username1;
-            Password1 = password1;
+            Username = username;
+            Password = password;
         }
-        public string Username2 { get; set; }
-        public string Password2 { get; set; }
-  
     }
  }

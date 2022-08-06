@@ -32,9 +32,9 @@ namespace Manage_Drugstore.Controllers
                 string surname = Console.ReadLine();
 
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter age:");
-                byte age = Console.ReadLine();
-                byte age;
-                bool result = byte.TryParse(age, out age);
+                string age = Console.ReadLine();
+                byte Age;
+                bool result = byte.TryParse(age, out Age);
 
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter Experience:");
                 string experienceInput = Console.ReadLine();
@@ -58,13 +58,12 @@ namespace Manage_Drugstore.Controllers
                     {
                         Name = name,
                         Surname = surname,
-                        Age = age,
+                        Age = Age,
                         Experience = experience,
-                        Drugstore = drugStore
                     };
 
                     _druggistRepository.Create(druggist);
-                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Successfully created -  Name: {druggist.Name}, Surname: {druggist.Surname}, Age:{druggist.Age}, Drug store: {druggist.Drugstore.Name}");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Successfully created -  Name: {druggist.Name}, Surname: {druggist.Surname}, Age:{druggist.Age}, Drug store: {druggist.Name}");
                 }
                 else
                 {
@@ -80,13 +79,13 @@ namespace Manage_Drugstore.Controllers
 
         public void UpdateDruggist()
         {
-            GetAllDruggistsByDrugStore();
+            GetAllDruggistByDrugstore();
             ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist id");
             string id = Console.ReadLine();
 
             int druggistId;
             bool result = int.TryParse(id, out druggistId);
-            var druggist = _druggistRepository.Get(d => s.Id == druggistId);
+            var druggist = _druggistRepository.Get(d => d.Id == druggistId);
 
             if (druggist != null)
             {
@@ -109,7 +108,7 @@ namespace Manage_Drugstore.Controllers
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "enter new Drug store name");
             DrugStoreName: string newDrugStoreName = Console.ReadLine();
 
-                if (druggist.Drugstore.Name.ToLower() == newDrugStoreName.ToLower())
+                if (druggist.Name.ToLower() == newDrugStoreName.ToLower())
                 {
                     druggist.Surname = newSurname;
                     druggist.Age = newAge;
@@ -128,7 +127,7 @@ namespace Manage_Drugstore.Controllers
                     var drugStore = _drugstoreRepository.Get(d => d.Name.ToLower() == newDrugStoreName.ToLower());
                     if (drugStore != null)
                     {
-                        druggist.Drugstore = _drugstoreRepository.Get(d => d.Name.ToLower() == newDrugStoreName.ToLower());
+                        drugStore = _drugstoreRepository.Get(d => d.Name.ToLower() == newDrugStoreName.ToLower());
                         _druggistRepository.Update(druggist);
                     }
                     else
@@ -194,7 +193,7 @@ namespace Manage_Drugstore.Controllers
             var drugStore = _drugstoreRepository.Get(d => d.Name.ToLower() == drugStoreName.ToLower());
             if (drugStore != null)
             {
-                var drugStoreDruggists = _druggistRepository.GetAll(d => d.Drugstore.Id == drugStore.Id);
+                var drugStoreDruggists = _druggistRepository.GetAll(d => d.Id == drugStore.Id);
 
                 if (drugStoreDruggists.Count != 0)
                 {

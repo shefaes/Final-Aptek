@@ -29,7 +29,7 @@ namespace DataAccess.Repositories.Implementations
             return entity;
         }
 
-        public Drugstore Delete(Drugstore entity)
+        public void Delete(Drugstore entity)
         {
             try
             {
@@ -39,7 +39,6 @@ namespace DataAccess.Repositories.Implementations
             {
                 Console.WriteLine("Something went wrong");
             }
-            return entity;
         }
 
         public Drugstore Get(Predicate<Drugstore> filter = null)
