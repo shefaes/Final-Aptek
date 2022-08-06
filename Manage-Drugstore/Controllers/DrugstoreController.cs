@@ -136,14 +136,14 @@ namespace Manage_Drugstore.Controllers
 
         public void DeleteDrugstore()
         {
-            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter drugstore name");
-            string drugstoreName = Console.ReadLine();
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter drugstore Id");
+            string drugstoreId = Console.ReadLine();
 
-            var drugstore = _drugstoreRepository.Get(g => g.Name.ToLower() == drugstoreName.ToLower());
+            var drugstore = _drugstoreRepository.Get(d => d.Id.ToLower() == drugstoreId.ToLower());
             if (drugstore != null)
             {
                 _drugstoreRepository.Delete(drugstore);
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Gray, $"{drugstoreName} is deleted");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Gray, $"{drugstoreId} is deleted");
             }
             else
             {
@@ -154,11 +154,59 @@ namespace Manage_Drugstore.Controllers
 
         public void GetAllDrugstores()
         {
+            var drugStores = _drugstoreRepository.GetAll();
+            var owners = _ownerRepository.GetAll();
 
+            if (drugStores.Count > 0)
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All drugstore list");
+
+                foreach (var drugStore in drugStores)
+                {
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, $"Id - {drugStore.Id}, Name: {drugStore.Name}, Address: {drugStore.Address}, ContactNumber: {drugStore.ContactNumber}");
+                }
+            }
+            else
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There is no any drugstore");
+            }
         }
 
         public void GetAllDrugstoresByOwner()
         {
+            var owners = _ownerRepository.GetAll();
+        AllOwnerList: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "All owner lists");
+
+            foreach (var ownerItem in owners)
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, ownerItem.Id);
+            }
+
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner Id:");
+            string ownerId = Console.ReadLine();
+
+            var owner = _ownerRepository.Get(o => o.Name.ToLower() == ownerId.ToLower());
+            if (owner != null)
+            {
+                var drugStoreOfOwners = _drugstoreRepository.GetAll(o => o.Owner.Id == owner.Id);
+                if (drugStoreOfOwners.Count != 0)
+                {
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "All drugstore of the owner:");
+
+                    foreach (var drugStoreOfOwner in drugStoreOfOwners)
+                    {
+                        ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{drugStoreOfOwner.Name}, {drugStoreOfOwner.Address}, {drugStoreOfOwner.ContactNumber}, {drugStoreOfOwner.Id}");
+                    }
+                }
+                else
+                {
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"There is no drugstore in this owner {owner.Id}");
+                }
+            }
+            else
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Including owner doesn't exist");
+            }
 
         }
 

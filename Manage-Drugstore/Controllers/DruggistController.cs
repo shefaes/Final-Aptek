@@ -11,8 +11,8 @@ namespace Manage_Drugstore.Controllers
 {
     public class DruggistController
     {
-        private readonly DruggistRepository _druggistRepository;
-        private readonly DrugstoreRepository _drugstoreRepository;
+        private  DruggistRepository _druggistRepository;
+        private  DrugstoreRepository _drugstoreRepository;
         
 
         public DruggistController()

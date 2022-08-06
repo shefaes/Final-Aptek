@@ -19,7 +19,7 @@ namespace DataAccess.Repositories.Implementations
             entity.Id = id;
             try
             {
-                DbContexts.Owner.Add(entity);
+                DbContexts.Owners.Add(entity);
             }
             catch (Exception)
             {
@@ -29,16 +29,15 @@ namespace DataAccess.Repositories.Implementations
             return entity;
         }
 
-        public Owner Delete(Owner entity)
+        public void  Delete(Owner entity)
         {
             try
             {
-                DbContexts.Owner.Remove(entity);
+                DbContexts.Owners.Remove(entity);
             }
             catch (Exception)
             {
                 Console.WriteLine("Something went wrong");
-                return entity;
             } 
         }
 
@@ -48,11 +47,11 @@ namespace DataAccess.Repositories.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContexts.Owner[0];
+                    return DbContexts.Owners[0];
                 }
                 else
                 {
-                    return DbContexts.Owner.Find(filter);
+                    return DbContexts.Owners.Find(filter);
                 }
             }
             catch (Exception)
@@ -68,12 +67,12 @@ namespace DataAccess.Repositories.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContexts.Owner;
+                    return DbContexts.Owners;
 
                 }
                 else
                 {
-                    return DbContexts.Owner.FindAll(filter);
+                    return DbContexts.Owners.FindAll(filter);
                 }
             }
             catch (Exception)
@@ -87,7 +86,7 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                var Owner = DbContexts.Owner.Find(o => o.Id == entity.Id);
+                var Owner = DbContexts.Owners.Find(o => o.Id == entity.Id);
                 if (Owner != null)
                     Owner.Name = entity.Name;
                     Owner.Surname = entity.Surname;

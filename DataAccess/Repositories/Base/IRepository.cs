@@ -9,7 +9,7 @@ namespace DataAccess.Repositories.Base
 {
     public interface IRepository<T> where T: IEntity
     {
-        void Create(T entity);
+        T Create(T entity);
 
         void Update(T entity);
 

@@ -27,6 +27,9 @@ namespace Manage_Drugstore.Controllers
             ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner surname:");
             string surname = Console.ReadLine();
 
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter owner Id:");
+            int Id = Console.ReadLine();
+
         }
         public void DeleteOwner()
         {
@@ -41,6 +44,27 @@ namespace Manage_Drugstore.Controllers
             else
             {
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "This owner doesn't exist");
+            }
+        }
+
+        public Owner Get(Predicate<Owner> filter = null)
+        {
+            try
+            {
+                if (filter != null)
+                {
+                    return DbContexts.Owners.Find(filter);
+                }
+                else
+                {
+                    return DbContexts.Owner[0];
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+                return null;
             }
         }
 

@@ -87,18 +87,15 @@ namespace DataAccess.Repositories.Implementations
                {
                  Druggist.Name = entity.Name;
                  Druggist.Surname = entity.Surname;
-               }
+                 Druggist.Age = entity.Age;
+                 Druggist.Drugstore = entity.Drugstore;
+                }
             }
              catch (Exception)
             {
                 Console.WriteLine("Something went wrong");
             }
 
-        }
-
-        public void Create(Druggist druggist)
-        {
-            throw new NotImplementedException();
         }
     }
 }

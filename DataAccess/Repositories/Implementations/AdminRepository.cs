@@ -49,13 +49,34 @@ namespace DataAccess.Repositories.Implementations
                 var admin = DbContexts.Admins.Find(a => a.Id == entity.Id);
                 if (admin != null)
                 {
-                    admin.Username1 = entity.Username1;
-                    admin.Password1= entity.Password1;
+                    admin.Username = entity.Username;
+                    admin.Password= entity.Password;
                 }
             }
             catch (Exception)
             {
                 Console.WriteLine("Something went wrong");
+            }
+        }
+
+        public List<Admin> Get (Predicate<Admin> filter = null)
+        {
+            try
+            {
+                if (filter != null)
+                {
+                   return DbContexts.Admins.Find(filter);
+                }
+                else
+                {
+                   return DbContexts.Admins[0];
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+                return null;
             }
         }
 
