@@ -14,6 +14,6 @@ namespace Core.Entities
         public string Surname { get; set; }
         public byte Age { get; set; }
         public int Experience { get; set; }
-        public string Drugstore { get; set; }
+        public Drugstore Drugstore { get; set; }
     }
 }

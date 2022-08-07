@@ -88,8 +88,13 @@ namespace DataAccess.Repositories.Implementations
             {
                 var Drugstore = DbContexts.Drugstores.Find(d => d.Id == entity.Id);
                 if (Drugstore != null)
+                {
                     Drugstore.Name = entity.Name;
                     Drugstore.ContactNumber = entity.ContactNumber;
+                    Drugstore.Id = Drugstore.Id;
+                    Drugstore.Address = entity.Address;
+                    
+                }
             }
             catch (Exception)
             {

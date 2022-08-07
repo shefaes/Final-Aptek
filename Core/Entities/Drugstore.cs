@@ -12,10 +12,10 @@ namespace Core.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public int ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
         public List<Druggist>Druggists { get; set; }
         public List<Drug> Drugs { get; set; }
-        public string Owner { get; set; }
-        public object OwnerName { get; set; }
+        public Owner Owner { get; set; }
+        
     }
 }

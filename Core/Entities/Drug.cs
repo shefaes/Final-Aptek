@@ -11,8 +11,8 @@ namespace Core.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public int Count { get; set; }
-        public List<Drugstore> Drugstores { get; set; }
+        public Drugstore Drugstore { get; set; }
     }
 }

@@ -69,7 +69,7 @@ namespace Manage_Drugstore.Controllers
                                     Surname = newSurname,
                                 };
                                 _ownerRepository.Update(updatedOwner);
-                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{oldName} {oldSurname}is updated to{updatedOwner.Name}{updatedOwner.Surname}");
+                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{oldName} {oldSurname}is updated to{updatedOwner.Name} {updatedOwner.Surname}");
                             }
                         }
                     }
