@@ -46,8 +46,8 @@ namespace Manage_Drugstore.Controllers
 
                         digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter drug price:");
                         string price = Console.ReadLine();
-                        int drugprice;
-                        result = int.TryParse(price, out drugprice);
+                        double drugprice;
+                        result = double.TryParse(price, out drugprice);
                         if (result)
                         {
                             ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter drug count:");
@@ -67,7 +67,7 @@ namespace Manage_Drugstore.Controllers
                                 drugStore.Drugs.Add(drug);
                                 _drugRepository.Create(drug);
                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Successfully created -  Name: {drug.Name}, count: {drug.Count}, " +
-                                                                                $"price:{drug.Price}, drugstore{drug.Drugstore.Name}");
+                                                                                $"price:{drug.Price}, drugstore{drugStore.Name}");
                             }
                             else
                             {
