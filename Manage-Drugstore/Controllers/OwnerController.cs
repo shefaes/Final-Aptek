@@ -44,7 +44,7 @@ namespace Manage_Drugstore.Controllers
             {
                 foreach (var owner in owners)
                 {
-                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname{owner.Name}{owner.Surname}");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname {owner.Name} {owner.Surname}");
                     Id: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter owner Id");
                     string id = Console.ReadLine();
                     int ownerId;
@@ -69,7 +69,7 @@ namespace Manage_Drugstore.Controllers
                                     Surname = newSurname,
                                 };
                                 _ownerRepository.Update(updatedOwner);
-                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{oldName} {oldSurname}is updated to{updatedOwner.Name} {updatedOwner.Surname}");
+                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"{oldName} {oldSurname} is updated to {updatedOwner.Name} {updatedOwner.Surname}");
                             }
                         }
                     }
@@ -93,7 +93,8 @@ namespace Manage_Drugstore.Controllers
             {
                 foreach (var owner in owners)
                 {
-                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname{owner.Name}{owner.Surname}");
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname {owner.Name} {owner.Surname}");
+                }
                     digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter owner Id");
                     string id = Console.ReadLine();
                     int ownerId;
@@ -104,7 +105,7 @@ namespace Manage_Drugstore.Controllers
                         if (dbOwner != null)
                         {
                             _ownerRepository.Delete(dbOwner);
-                            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, $"{dbOwner.Name} is deleted");
+                            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, $" Fullname : {dbOwner.Name} {dbOwner.Surname} is deleted");
                         }
                         else
                         {
@@ -117,7 +118,7 @@ namespace Manage_Drugstore.Controllers
                         goto digits;
                     }
 
-                }
+                
             }
             else
             {
