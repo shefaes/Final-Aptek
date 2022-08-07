@@ -260,6 +260,7 @@ namespace Manage_Drugstore.Controllers
         public void Sale()
         {
 
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"I can't write Sale Method");
         }
 
     }

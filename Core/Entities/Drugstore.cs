@@ -16,6 +16,12 @@ namespace Core.Entities
         public List<Druggist>Druggists { get; set; }
         public List<Drug> Drugs { get; set; }
         public Owner Owner { get; set; }
+
+        public Drugstore()
+        {
+            Drugs = new List<Drug>();
+            Druggists = new List<Druggist>();
+        }
         
     }
 }
