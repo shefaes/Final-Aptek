@@ -30,5 +30,9 @@ namespace Manage_Drugstore.Controllers
             return admin;
 
         }
+        public Admin Logout()
+        {
+            return Authenticate();
+        }
     }
 }

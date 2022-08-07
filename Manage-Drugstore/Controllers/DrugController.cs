@@ -22,16 +22,16 @@ namespace Manage_Drugstore.Controllers
         public void CreateDrug()
         {
             var drugstores = _drugstoreRepository.GetAll();
-            if (drugtore.Count != 0)
+            if (drugstores.Count > 0)
             {
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter drug name:");
                 string name;
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter drug price:");
-                byte pricer;
+                byte price;
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, "Enter drug count:");
-                int count = Console.ReadLine();
+                string count = Console.ReadLine();
                 byte IdItem;
-                bool result = byte.TryParse(Id, out IdItem);
+                bool result = byte.TryParse(count, out IdItem);
 
                 AllOwnersList: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, "All ");
             }
@@ -43,7 +43,19 @@ namespace Manage_Drugstore.Controllers
 
         public void DeleteDrug()
         {
+            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter drug name");
+            string name = Console.ReadLine();
+            var drug = _drugRepository.Get(d => d.Name.ToLower() == name.ToLower());
+            if (drug != null)
+            {
+                _drugRepository.Delete(drug);
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Gray, $"{name} is deleted");
 
+            }
+            else
+            {
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "This drug doesn't exist");
+            }
         }
 
         public void GetAllDrugs()

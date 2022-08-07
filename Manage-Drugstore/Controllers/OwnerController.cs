@@ -12,12 +12,12 @@ namespace Manage_Drugstore.Controllers
     public class OwnerController
     {
         private OwnerRepository _ownerRepository;
-        
+
 
         public OwnerController()
         {
             _ownerRepository = new OwnerRepository();
-            
+
         }
         public void CreateOwner()
         {
@@ -45,7 +45,7 @@ namespace Manage_Drugstore.Controllers
                 foreach (var owner in owners)
                 {
                     ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname{owner.Name}{owner.Surname}");
-                Id: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter owner Id");
+                    Id: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter owner Id");
                     string id = Console.ReadLine();
                     int ownerId;
                     var result = int.TryParse(id, out ownerId);
@@ -88,20 +88,42 @@ namespace Manage_Drugstore.Controllers
 
         public void DeleteOwner()
         {
-            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter Owner name");
-            string name = Console.ReadLine();
-            var owner = _ownerRepository.Get(o => o.Name.ToLower() == name.ToLower());
-            if (owner != null)
+            var owners = _ownerRepository.GetAll();
+            if (owners.Count > 0)
             {
-                _ownerRepository.Delete(owner);
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, $"{name} is deleted");
+                foreach (var owner in owners)
+                {
+                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Green, $"Id {owner.Id}, Fullname{owner.Name}{owner.Surname}");
+                    digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Enter owner Id");
+                    string id = Console.ReadLine();
+                    int ownerId;
+                    var result = int.TryParse(id, out ownerId);
+                    if (result)
+                    {
+                        var dbOwner = _ownerRepository.Get(o => o.Id == ownerId);
+                        if (dbOwner != null)
+                        {
+                            _ownerRepository.Delete(dbOwner);
+                            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, $"{dbOwner.Name} is deleted");
+                        }
+                        else
+                        {
+                            ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "This owner doesn't exist");
+                        }
+                    }
+                    else
+                    {
+                        ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Please enter Id in digits");
+                        goto digits;
+                    }
+
+                }
             }
             else
             {
-                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "This owner doesn't exist");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There is no owner");
             }
         }
-
         public void GetAllOwners()
         {
             var owners = _ownerRepository.GetAll();
@@ -111,7 +133,7 @@ namespace Manage_Drugstore.Controllers
 
                 foreach (var owner in owners)
                 {
-                   
+
                     ConsoleHelpers.WriteTextWithColor(ConsoleColor.Magenta, $"Id - {owner.Id}, fullname - {owner.Name}{owner.Surname}");
                 }
             }
@@ -120,7 +142,7 @@ namespace Manage_Drugstore.Controllers
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "There is no any owner");
             }
         }
-       
+
     }
-}   
+}
 

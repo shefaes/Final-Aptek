@@ -52,33 +52,44 @@ namespace Manage_Drugstore
                                             if (selectedNumber >= 0 && selectedNumber <= 4)
                                             {
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, $"Owner");
-                                                Console.WriteLine("----");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
+                                                 Console.WriteLine("----");
+                                                digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "1 - Create Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "2 - Update Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "3 - Delete Owner");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "4 - Get All Owners");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
-
-                                                switch (selectedNumber)
+                                                int n;
+                                                result = int.TryParse(number, out n);
+                                                if (result)
                                                 {
-                                                    case (int)Options1.CreateOwner:
-                                                        _ownerController.CreateOwner();
-                                                        break;
-                                                    case (int)Options1.UpdateOwner:
-                                                        _ownerController.UpdateOwner();
-                                                        break;
-                                                    case (int)Options1.DeleteOwner:
-                                                        _ownerController.DeleteOwner();
-                                                        break;
-                                                    case (int)Options1.GetAllOwners:
-                                                        _ownerController.GetAllOwners();
-                                                        break;
-                                                    case (int)Options1.Logout:
-                                                        goto Number;
-                                                        break;
+                                                    switch (n)
+                                                    {
+                                                        case (int)Options1.CreateOwner:
+                                                            _ownerController.CreateOwner();
+                                                            break;
+                                                        case (int)Options1.UpdateOwner:
+                                                            _ownerController.UpdateOwner();
+                                                            break;
+                                                        case (int)Options1.DeleteOwner:
+                                                            _ownerController.DeleteOwner();
+                                                            break;
+                                                        case (int)Options1.GetAllOwners:
+                                                            _ownerController.GetAllOwners();
+                                                            break;
+                                                        case (int)Options1.Logout:
+                                                            goto Number;
+                                                            break;
+                                                    }
                                                 }
+                                                else
+                                                {
+                                                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Number should be digits");
+                                                    goto digits;
+                                                }
+
+
                                             }
                                             else
                                             {
@@ -94,7 +105,7 @@ namespace Manage_Drugstore
                                             {
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, $"Drugstore");
                                                 Console.WriteLine("----");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
+                                               digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "1 - Create Drugstore");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "2 - Update Drugstore");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "3- Delete Drugstore");
@@ -103,29 +114,39 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, "6 - Sale");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
-                                                switch (selectedNumber)
+                                                int n;
+                                                result = int.TryParse(number, out n);
+                                                if (result)
                                                 {
-                                                    case (int)Options2.CreateDrugstore:
-                                                        _drugstoreController.CreateDrugstore();
-                                                        break;
-                                                    case (int)Options2.UpdateDrugstore:
-                                                        _drugstoreController.UpdateDrugstore();
-                                                        break;
-                                                    case (int)Options2.DeleteDrugstore:
-                                                        _drugstoreController.DeleteDrugstore();
-                                                        break;
-                                                    case (int)Options2.GetAllDrugstores:
-                                                        _drugstoreController.GetAllDrugstores();
-                                                        break;
-                                                    case (int)Options2.GetAllDrugstoresByOwner:
-                                                        _drugstoreController.GetAllDrugstoresByOwner();
-                                                        break;
-                                                    case (int)Options2.Sale:
-                                                        _drugstoreController.Sale();
-                                                        break;
-                                                    case (int)Options2.Logout:
-                                                        goto Number;
-                                                        break;
+                                                    switch (n)
+                                                    {
+                                                        case (int)Options2.CreateDrugstore:
+                                                            _drugstoreController.CreateDrugstore();
+                                                            break;
+                                                        case (int)Options2.UpdateDrugstore:
+                                                            _drugstoreController.UpdateDrugstore();
+                                                            break;
+                                                        case (int)Options2.DeleteDrugstore:
+                                                            _drugstoreController.DeleteDrugstore();
+                                                            break;
+                                                        case (int)Options2.GetAllDrugstores:
+                                                            _drugstoreController.GetAllDrugstores();
+                                                            break;
+                                                        case (int)Options2.GetAllDrugstoresByOwner:
+                                                            _drugstoreController.GetAllDrugstoresByOwner();
+                                                            break;
+                                                        case (int)Options2.Sale:
+                                                            _drugstoreController.Sale();
+                                                            break;
+                                                        case (int)Options2.Logout:
+                                                            goto Number;
+                                                            break;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Number should be digits");
+                                                    goto digits;
                                                 }
                                             }
                                             else
@@ -140,7 +161,7 @@ namespace Manage_Drugstore
                                             if (selectedNumber >= 0 && selectedNumber <= 5)
                                             {
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, $"Druggist");
-                                                Console.WriteLine("----");
+                                                digits: Console.WriteLine("----");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "1 - Create Druggist");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "2- Update Druggist");
@@ -149,25 +170,35 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "5 - Get All Druggist by Drugstore");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
-                                                switch (selectedNumber)
+                                                int n;
+                                                result = int.TryParse(number, out n);
+                                                if (result)
                                                 {
-                                                    case (int)Options3.CreateDruggist:
-                                                        _druggistController.CreateDruggist();
-                                                        break;
-                                                    case (int)Options3.UpdateDruggist:
-                                                        _druggistController.UpdateDruggist();
-                                                        break;
-                                                    case (int)Options3.DeleteDruggist:
-                                                        _druggistController.DeleteDruggist();
-                                                        break;
-                                                    case (int)Options3.GetAllDruggists:
-                                                        _druggistController.GetAllDruggists();
-                                                        break;
-                                                    case (int)Options3.GetAllDruggistByDrugstore:
-                                                        _druggistController.GetAllDruggistByDrugstore();
-                                                        break;
-                                                    case (int)Options3.Logout:
-                                                        goto Number;
+                                                    switch (n)
+                                                    {
+                                                        case (int)Options3.CreateDruggist:
+                                                            _druggistController.CreateDruggist();
+                                                            break;
+                                                        case (int)Options3.UpdateDruggist:
+                                                            _druggistController.UpdateDruggist();
+                                                            break;
+                                                        case (int)Options3.DeleteDruggist:
+                                                            _druggistController.DeleteDruggist();
+                                                            break;
+                                                        case (int)Options3.GetAllDruggists:
+                                                            _druggistController.GetAllDruggists();
+                                                            break;
+                                                        case (int)Options3.GetAllDruggistByDrugstore:
+                                                            _druggistController.GetAllDruggistByDrugstore();
+                                                            break;
+                                                        case (int)Options3.Logout:
+                                                            goto Number;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Number should be digits");
+                                                    goto digits;
                                                 }
                                             }
                                             else
@@ -183,7 +214,7 @@ namespace Manage_Drugstore
                                             {
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Cyan, $"Drug");
                                                 Console.WriteLine("----");
-                                                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
+                                                digits: ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "Select option");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "1- Create Drug");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "2- Update Drug");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "3- Delete Drug");
@@ -192,25 +223,35 @@ namespace Manage_Drugstore
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Blue, "6 - Filter");
                                                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.DarkBlue, "0 - Logout");
                                                 number = Console.ReadLine();
-                                                switch (selectedNumber)
+                                                int n;
+                                                result = int.TryParse(number, out n);
+                                                if (result)
                                                 {
-                                                    case (int)Options4.CreateDrug:
-                                                        _drugController.CreateDrug();
-                                                        break;
-                                                    case (int)Options4.UpdateDrug:
-                                                        _drugController.UpdateDrug();
-                                                        break;
-                                                    case (int)Options4.DeleteDrug:
-                                                        _drugController.DeleteDrug();
-                                                        break;
-                                                    case (int)Options4.GetAllDrugs:
-                                                        _drugController.GetAllDrugs();
-                                                        break;
-                                                    case (int)Options4.GetAllDrugsByDrugstore:
-                                                        _drugController.GetAllDrugsByDrugstore();
-                                                        break;
-                                                    case (int)Options4.Logout:
-                                                        goto Number;      
+                                                    switch (n)
+                                                    {
+                                                        case (int)Options4.CreateDrug:
+                                                            _drugController.CreateDrug();
+                                                            break;
+                                                        case (int)Options4.UpdateDrug:
+                                                            _drugController.UpdateDrug();
+                                                            break;
+                                                        case (int)Options4.DeleteDrug:
+                                                            _drugController.DeleteDrug();
+                                                            break;
+                                                        case (int)Options4.GetAllDrugs:
+                                                            _drugController.GetAllDrugs();
+                                                            break;
+                                                        case (int)Options4.GetAllDrugsByDrugstore:
+                                                            _drugController.GetAllDrugsByDrugstore();
+                                                            break;
+                                                        case (int)Options4.Logout:
+                                                            goto Number;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    ConsoleHelpers.WriteTextWithColor(ConsoleColor.Red, "Number should be digits");
+                                                    goto digits;
                                                 }
                                             }
                                             else
